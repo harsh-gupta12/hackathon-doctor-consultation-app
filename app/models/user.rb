@@ -7,4 +7,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :mobile, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
+
+  has_many :appointments, dependent: :destroy
+  has_many :doctors, through: :appointments
 end
